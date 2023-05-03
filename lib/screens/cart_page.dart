@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hobby_valley2/models/card_model.dart';
+import 'package:hobby_valley2/screens/payNow.dart';
+
 import 'package:provider/provider.dart';
 
 
@@ -59,6 +61,8 @@ class CartPage extends StatelessWidget {
                             ),
                             subtitle: Text(
                               '\$' + value.cartItems[index][1],
+
+
                               style: const TextStyle(fontSize: 12),
                             ),
                             trailing: IconButton(
@@ -82,7 +86,7 @@ class CartPage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.blue,
+                    color: Colors.indigo.shade300,
                   ),
                   padding: const EdgeInsets.all(24),
                   child: Row(
@@ -93,7 +97,7 @@ class CartPage extends StatelessWidget {
                         children: [
                           Text(
                             'Total Price',
-                            style: TextStyle(color: Colors.blue[200]),
+                            style: TextStyle(color: Colors.indigo),
                           ),
 
                           const SizedBox(height: 8),
@@ -110,24 +114,38 @@ class CartPage extends StatelessWidget {
                       ),
 
                       // pay now
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue.shade200),
-                          borderRadius: BorderRadius.circular(28),
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        child: Row(
-                          children: const [
-                            Text(
-                              'Pay Now',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16,
-                              color: Colors.white,
-                            ),
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PayNowPage(),
+                              ));
+                          // Обработка нажатия
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.indigo),
+                            borderRadius: BorderRadius.circular(28),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Pay Now',
+                                style: TextStyle(
+                                  color: Colors.indigo,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                              const SizedBox(width: 5),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16,
+                                color: Colors.indigo,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

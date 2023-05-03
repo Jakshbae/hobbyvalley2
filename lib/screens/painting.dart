@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hobby_valley2/screens/painting.dart';
+import 'package:hobby_valley2/screens/paintingDetails.dart';
 import 'package:hobby_valley2/screens/scrapbooking.dart';
 import 'package:hobby_valley2/screens/seal.dart';
 import 'package:provider/provider.dart';
 import '../components/cart_comp.dart';
 import '../models/card_model.dart';
 import 'cart_page.dart';
-import 'knittingDetails.dart';
+import 'home_screen1.dart';
 import 'loginpage.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Painting extends StatefulWidget {
+  const Painting({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Painting> createState() => _PaintingState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PaintingState extends State<Painting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,28 +26,48 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         iconTheme: IconThemeData(
           color: Colors.grey[800],),
-
+        // leading: Padding(
+        //   padding: const EdgeInsets.only(left: 24.0),
+        //   child: Icon(
+        //     Icons.location_on,
+        //     color: Colors.grey[700],
+        //   ),
+        // ),
+        // title: Text(
+        //   'Sydney, Australia',
+        //   style: TextStyle(
+        //     fontSize: 16,
+        //     color: Colors.grey[700],
+        //   ),
+        // ),
         centerTitle: false,
         actions: [
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 24.0),
+          //   child: Container(
+          //     padding: EdgeInsets.all(16),
+          //     decoration: BoxDecoration(
+          //       color: Colors.grey[200],
+          //       borderRadius: BorderRadius.circular(12),
+          //     ),
 
-
-              InkWell(
-                onTap: ()
-    {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return
-          ProfilePage();
-      },
-      ),
-      );
-    },
-
-              child: Icon(
-                Icons.person,
-                color: Colors.grey,
-
+          InkWell(
+            onTap: ()
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return
+                  ProfilePage();
+              },
               ),
+              );
+            },
+
+            child: Icon(
+              Icons.person,
+              color: Colors.grey,
+
             ),
+          ),
 
         ],
 
@@ -76,9 +96,7 @@ class _HomePageState extends State<HomePage> {
           // good morning bro
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Text('Welcome to our online shop fro hobby',
-
-            ),
+            child: Text(''),
 
           ),
 
@@ -92,7 +110,7 @@ class _HomePageState extends State<HomePage> {
               style: GoogleFonts.notoSerif(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
-                color: Colors.indigo.shade300
+                  color: Colors.indigo.shade300
               ),
             ),
           ),
@@ -185,9 +203,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
-              "Knitting Products",
+              "Drawing Products",
               style: GoogleFonts.notoSerif(
-
                 //fontWeight: FontWeight.bold,
                 fontSize: 18,
                   color: Colors.indigo.shade300
@@ -202,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                 return GridView.builder(
                   padding: const EdgeInsets.all(12),
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: value.shopItems.length,
+                  itemCount: value.paintingItems.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 1 / 1.2,
@@ -213,22 +230,22 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => KnittingItemDetailsPage(
-                                itemName: value.shopItems[index][0],
-                                itemPrice: value.shopItems[index][1],
-                                imagePath: value.shopItems[index][2],
+                              builder: (context) => PaintingItemDetailsPage(
+                                itemName: value.paintingItems[index][0],
+                                itemPrice: value.paintingItems[index][1],
+                                imagePath: value.paintingItems[index][2],
                               ),
                             ),
                           );
                         },
                     child: GroceryItemTile(
-                      itemName: value.shopItems[index][0],
-                      itemPrice: value.shopItems[index][1],
-                      imagePath: value.shopItems[index][2],
-                      color: value.shopItems[index][3],
+                      itemName: value.paintingItems[index][0],
+                      itemPrice: value.paintingItems[index][1],
+                      imagePath: value.paintingItems[index][2],
+                      color: value.paintingItems[index][3],
                       onPressed: () =>
                           Provider.of<CartModel>(context, listen: false)
-                              .addItemToCart(index),
+                              .addPaintToCart(index),
                     ),
                     );
                   },

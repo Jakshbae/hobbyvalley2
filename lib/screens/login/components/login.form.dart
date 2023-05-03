@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hobby_valley2/constant.dart';
 import 'package:hobby_valley2/screens/home_screen1.dart';
+import 'package:hobby_valley2/screens/login/login.dart';
 
 
 import '../../../components/alreadyhaveacc.dart';
@@ -55,13 +56,16 @@ class LoginForm extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return HomeScreen();
+                      return HomePage();
                     },
                   ),
                 );
               },
               child: Text(
                 "Login".toUpperCase(),
+              ),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.indigo.shade300),
               ),
             ),
           ),

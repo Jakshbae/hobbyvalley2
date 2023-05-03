@@ -144,6 +144,7 @@ class SingleItemScreen extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             Container(
               padding: EdgeInsets.symmetric(

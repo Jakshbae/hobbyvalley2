@@ -44,6 +44,21 @@ class SignUpForm extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            child: TextFormField(
+              textInputAction: TextInputAction.next,
+              obscureText: true,
+              cursorColor: kPrimaryColor,
+              decoration: InputDecoration(
+                hintText: "Name",
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(defaultPadding),
+                  child: Icon(Icons.person),
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: defaultPadding / 2),
           ElevatedButton(
             onPressed: () {
@@ -51,12 +66,16 @@ class SignUpForm extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return HomeScreen();
+                    return HomePage();
                   },
                 ),
               );
             },
-            child: Text("Sign Up".toUpperCase()),
+            child: Text("Sign Up".toUpperCase()
+            ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.indigo.shade300),
+            ),
           ),
           const SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(

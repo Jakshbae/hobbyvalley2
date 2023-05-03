@@ -45,10 +45,22 @@ class WelcomeScreen extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => WelcomeReg(),
-                          ));
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) => WelcomeReg(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            return SlideTransition(
+                              position: Tween<Offset>(
+                                begin: const Offset(0, 1),
+                                end: Offset.zero,
+                              ).animate(animation),
+                              child: child,
+                            );
+                          },
+                          transitionDuration: const Duration(milliseconds: 500),
+                        ),
+                      );
+
                     },
                     child: Container(
                       padding:

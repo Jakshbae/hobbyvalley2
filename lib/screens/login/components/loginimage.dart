@@ -14,7 +14,9 @@ class LoginScreenTopImage extends StatelessWidget {
       children: [
         Text(
           "LOGIN",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold,
+          ),
+
         ),
         SizedBox(height: defaultPadding * 2),
         Row(
@@ -22,7 +24,8 @@ class LoginScreenTopImage extends StatelessWidget {
             const Spacer(),
             Expanded(
               flex: 8,
-              child: Image.asset("images/main.png"),
+              child: Image.asset("images/main.png",
+                  ),
             ),
             const Spacer(),
           ],

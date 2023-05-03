@@ -13,13 +13,15 @@
 //     print(status);
 //     var collection = db.collection(COLLECTION_NAME);
 //     await collection.insertMany([{
-//       "username":"dilyara2591",
-//       "name":"dilyara",
-//       "email":"dilyara@mail.ru"
+//       "productname":"Knitting Yarn",
+//       "price":"5.52"
+//
 //     },{
-//       "username":"karakat2922",
-//       "name":"karakat",
-//       "email":"karakat@nkjs.ru"
+//       "productname":"Crochet Hook",
+//       "price":"2.50"
+//     },{
+//       "productname":"Marker",
+//       "price":"1.00"
 //     }]);
 //     print(await collection.find().toList());
 //   }
